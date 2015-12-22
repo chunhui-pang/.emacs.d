@@ -1,0 +1,4 @@
+# git ingore files
+auto-save-list/
+session.*
+*~
