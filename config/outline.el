@@ -7,7 +7,7 @@
 (define-key cm-map "o" 'hide-other)        ; Hide other branches
 (define-key cm-map "c" 'hide-entry)        ; Hide this entry's body
 (define-key cm-map "l" 'hide-leaves)       ; Hide body lines in this entry and sub-entries
-(define-key cm-map "d" 'hide-subtree)      ; Hide everything in this entry and sub-entries
+(define-key cm-map "h" 'hide-subtree)      ; Hide everything in this entry and sub-entries
 ;; SHOW
 (define-key cm-map "a" 'show-all)          ; Show (expand) everything
 (define-key cm-map "e" 'show-entry)        ; Show this heading's body
