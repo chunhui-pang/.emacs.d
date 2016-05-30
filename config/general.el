@@ -23,3 +23,9 @@
 
 (setq split-height-threshold 0)
 (setq split-width-threshold nil)
+
+
+(global-set-key (kbd "C-<tab>")
+		(lambda () (interactive)
+		  (switch-to-buffer (other-buffer))))
+
