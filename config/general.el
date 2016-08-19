@@ -29,3 +29,5 @@
 		(lambda () (interactive)
 		  (switch-to-buffer (other-buffer))))
 
+(global-set-key (kbd "C-{") 'previous-buffer)
+(global-set-key (kbd "C-}") 'next-buffer)
