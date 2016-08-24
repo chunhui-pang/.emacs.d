@@ -5,34 +5,35 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 (setq package-list 
-   '(auctex             
-     auto-complete      
-     company            
-     company-auctex     
-     company-c-headers 
-     company-irony      
-     company-math       
-     company-web        
-     concurrent         
-     ctable             
-     dash               
-     deferred           
-     epc                
-     ggtags             
-     irony              
-     jedi               
-     jedi-core          
-     math-symbol-lists 
-     monokai-theme      
-     org                
-     popup              
-     python-environment
-     web-completion-data
-     web-mode           
-     yasnippet          
-     ))
+      '(auctex
+	auto-complete
+	company      
+	company-auctex     
+	company-c-headers 
+	company-irony      
+	company-math       
+	company-web        
+	concurrent         
+	ctable             
+	dash               
+	deferred           
+	epc                
+	ggtags             
+	irony              
+	jedi               
+	jedi-core          
+	math-symbol-lists 
+	monokai-theme      
+	org                
+	popup              
+	python-environment
+	web-completion-data
+	web-mode           
+	yasnippet          
+	))
 (mapc (lambda (pkg)
 	(unless (package-installed-p pkg)
+	  (message "install package %s ..." pkg)
 	  (package-install pkg)))
       package-list)
 

@@ -1,4 +1,7 @@
 # git ingore files
 auto-save-list/
+irony/
+elpa/
+tutorial/
 session.*
 *~

@@ -23,3 +23,12 @@
 
 ;; indentation using smart-tabs-mode
 (setq-default tab-width 4)
+(setq split-height-threshold 0)
+(setq split-width-threshold nil)
+
+(global-set-key (kbd "C-<tab>")
+		(lambda () (interactive)
+		  (switch-to-buffer (other-buffer))))
+
+(global-set-key (kbd "C-{") 'previous-buffer)
+(global-set-key (kbd "C-}") 'next-buffer)
