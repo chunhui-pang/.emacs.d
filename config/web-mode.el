@@ -20,3 +20,10 @@
   (setq web-mode-script-padding 1)
   (setq web-mode-block-padding 0))
 (add-hook 'web-mode-hook 'ome-web-mode-hook)
+
+(add-hook 'nxml-mode-hook
+	  (lambda ()
+	    (setq nxml-child-indent 4)
+	    (setq nxml-attribute-indent 4)
+	    (setq nxml-slash-auto-complete-flag 4)
+	    ))
