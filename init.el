@@ -1,4 +1,4 @@
-					; packet manage initialize
+										; packet manage initialize
 (require 'package)
 (when (>= emacs-major-version 24)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -53,4 +53,3 @@
       (expand-file-name "config" user-emacs-directory))
 (load-el-file-from-directory config-dir)
 
-

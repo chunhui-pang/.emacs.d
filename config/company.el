@@ -1,7 +1,6 @@
 ;;; company-mode config
 (require 'company)
 (require 'color)
-(add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "<backtab>") 'company-complete-common)
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -18,4 +17,13 @@
 (add-hook 'c-mode-hook 'company-c-header-hook)
 (add-hook 'c++-mode-hook 'company-c-header-hook)
 
+
+;; adjust company backend priority
+(custom-set-variables
+ '(company-backends
+   (quote
+	(company-clang company-c-headers company-irony company-nxml company-css company-eclim company-semantic company-abbrev company-cmake company-capf company-files company-bbdb company-xcode
+				   (company-dabbrev-code company-gtags company-etags company-keywords)
+				   company-oddmuse company-dabbrev)))
+)
 
