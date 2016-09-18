@@ -1,6 +1,14 @@
 ;;; outline-mode config
 ;; Outline-minor-mode key map
 (define-prefix-command 'cm-map nil "Outline-")
+
+;; frequently used keys
+(define-key cm-map "H" 'hide-subtree)
+(define-key cm-map "S" 'show-subtree)
+(define-key cm-map "P" 'outline-up-heading)
+(define-key cm-map "N" 'outline-next-heading)
+
+
 ;; HIDE
 (define-key cm-map "q" 'hide-sublevels)    ; Hide everything but the top-level headings
 (define-key cm-map "t" 'hide-body)         ; Hide everything but headings (all body lines)
@@ -21,4 +29,4 @@
 (define-key cm-map "f" 'outline-forward-same-level)        ; Forward - same level
 (define-key cm-map "b" 'outline-backward-same-level)       ; Backward - same level
 (global-set-key "\M-o" cm-map)
-(add-hook 'c-mode-common-hook 'outline-minor-mode)
+
