@@ -1,8 +1,18 @@
-										; packet manage initialize
+;; package manage initialize
 (require 'package)
+(setq need-refresh-package-contents nil)
+(setq repo-list
+	  (quote
+	   (("melpa" . "http://melpa.org/packages/")
+		("gnu" . "http://elpa.gnu.org/packages/"))))
 (when (>= emacs-major-version 24)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+  (mapc
+   (lambda (repo)
+	 (when (not (member repo package-archives))
+	   (message "add repo to package-archieves: %s" repo)
+	   (add-to-list 'package-archives repo)
+	   (setq need-refresh-package-contents t)))
+   repo-list))
 (package-initialize)
 (setq package-list 
       '(auctex
@@ -33,6 +43,11 @@
 		))
 (mapc (lambda (pkg)
 		(unless (package-installed-p pkg)
+		  (if need-refresh-package-contents
+			  (progn
+				(message "%s" "refresh package contents...")
+				(package-refresh-contents)
+				(setq need-refresh-package-contents nil)))
 		  (message "install package %s ..." pkg)
 		  (package-install pkg)))
       package-list)
