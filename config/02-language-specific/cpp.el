@@ -15,8 +15,8 @@
   (custom-set-variables
    '(company-backends
 	 (quote
-	  ((company-irony company-c-headers company-files company-cmake)
-	   (company-clang company-c-headers company-files company-cmake))))))
+	  ((company-clang company-c-headers company-files company-cmake)
+	   (company-irony company-c-headers company-files company-cmake))))))
 
 (defun custom-c/cpp ()
   (message "custom for c/cpp environment...")

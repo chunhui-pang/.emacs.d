@@ -18,7 +18,9 @@
   (electric-pair-mode 1)
   (setq major-mode 'text-mode)
   ;; indentation using smart-tabs-mode
-  (setq-default tab-width 4))
+  (setq-default tab-width 4)
+  (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)))
+
 
 (defun custom-init-window ()
   (setq inhibit-splash-screen t)
