@@ -24,4 +24,5 @@
   (custom-c/cpp-general)
   (custom-c/cpp-company))
 
-(add-hook 'c-mode-common-hook 'custom-c/cpp)
+(add-hook 'c-mode-hook 'custom-c/cpp)
+(add-hook 'c++-mode-hook 'custom-c/cpp)
