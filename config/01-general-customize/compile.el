@@ -20,7 +20,7 @@
           (search-forward "warning" nil t))))
 	  (run-with-timer 1 nil
                       (lambda (buf)
-						(delete-windows-on buffer nil)
+						(delete-windows-on buf nil)
 						(message "compilation finished with neither errors nor warnings, window closed"))
                       buffer)))
 

@@ -58,4 +58,4 @@
   (custom-latex-emacs-server)
   (custom-latex-enable-other-modes))
 
-(add-hook 'latex-mode-hook 'custom-latex)
+(add-hook 'LaTeX-mode-hook 'custom-latex)
