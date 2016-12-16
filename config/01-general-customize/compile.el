@@ -7,8 +7,24 @@
     (setq cur (selected-window))
     (setq w (get-buffer-window "*compilation*"))
     (select-window w)
-    (select-window cur)
-    )
-  )
+    (select-window cur)))
+
+(defun kill-compile-window-if-successful (buffer string)
+  "kill the *compilation* window if the compilation is successfully finished"
+  (if (and
+       (string-match "compilation" (buffer-name buffer))
+       (string-match "finished" string)
+       (not
+        (with-current-buffer buffer
+          (goto-char (point-min))
+          (search-forward "warning" nil t))))
+	  (run-with-timer 1 nil
+                      (lambda (buf)
+						(delete-windows-on buffer nil)
+						(message "compilation finished with neither errors nor warnings, window closed"))
+                      buffer)))
+
 (global-set-key [f9] 'my-compile)
+(add-hook 'compilation-finish-functions 'kill-compile-window-if-successful)
+(setq compilation-scroll-output t)
 
