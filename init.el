@@ -1,18 +1,7 @@
 ;; package manage initialize
 (require 'package)
-(setq need-refresh-package-contents nil)
-(setq repo-list
-	  (quote
-	   (("melpa" . "http://melpa.org/packages/")
-		("gnu" . "http://elpa.gnu.org/packages/"))))
-(when (>= emacs-major-version 24)
-  (mapc
-   (lambda (repo)
-	 (when (not (member repo package-archives))
-	   (message "add repo to package-archieves: %s" repo)
-	   (add-to-list 'package-archives repo)
-	   (setq need-refresh-package-contents t)))
-   repo-list))
+(setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+						 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 (setq package-list 
       '(auctex
@@ -41,6 +30,7 @@
 		web-mode           
 		yasnippet          
 		))
+(setq need-refresh-package-contents t)
 (mapc (lambda (pkg)
 		(unless (package-installed-p pkg)
 		  (if need-refresh-package-contents
@@ -78,7 +68,7 @@
 		   (directory-files directory nil "^[0-9]+-.*$")))))
 
 
-;;; load theme
+;;; load theme when neccessary
 (load-theme 'monokai t)
 ;;; load config directory
 (setq config-dir
