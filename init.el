@@ -1,7 +1,7 @@
 ;; package manage initialize
 (require 'package)
 (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-						 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+						 ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
 (package-initialize)
 (setq package-list 
       '(auctex
@@ -28,7 +28,8 @@
 		python-environment
 		web-completion-data
 		web-mode           
-		yasnippet          
+		yasnippet
+		markdown-mode
 		))
 (setq need-refresh-package-contents t)
 (mapc (lambda (pkg)
