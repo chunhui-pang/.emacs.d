@@ -30,6 +30,7 @@
 		web-mode           
 		yasnippet
 		markdown-mode
+		rtags
 		))
 (setq need-refresh-package-contents t)
 (mapc (lambda (pkg)
