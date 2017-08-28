@@ -1,3 +1,4 @@
+(require 'company-tern)
 ;;; web mode
 (defun global-web-mode-config ()
   (require 'web-mode)
@@ -8,7 +9,9 @@
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
 (defun custom-web-general ()
   (setq web-mode-markup-indent-offset 4)
@@ -37,3 +40,6 @@
 (global-web-mode-config)
 (add-hook 'web-mode-hook 'custom-web)
 
+
+
+                           
