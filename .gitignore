@@ -6,3 +6,4 @@ tutorial/
 session.*
 *~
 ac-comphist.dat
+.python-environments/
