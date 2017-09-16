@@ -26,14 +26,47 @@
 ;; customize buffer switching keys
 (defun switch-among-buffers ()
   (global-set-key (kbd "C-<tab>")
-				  (lambda () (interactive) (switch-to-buffer (other-buffer))))
+                  (lambda () (interactive) (switch-to-buffer (other-buffer))))
   (global-set-key (kbd "C-{") 'previous-buffer)
   (global-set-key (kbd "C-}") 'next-buffer))
+
+
+;;; compile customization
+(defun my-compile ()
+  "Run compile and resize the compile window"
+  (interactive)
+  (progn
+    (call-interactively 'compile)
+    (setq cur (selected-window))
+    (setq w (get-buffer-window "*compilation*"))
+    (select-window w)
+    (select-window cur)))
+
+(defun kill-compile-window-if-successful (buffer string)
+  "kill the *compilation* window if the compilation is successfully finished"
+  (if (and
+       (string-match "compilation" (buffer-name buffer))
+       (string-match "finished" string)
+       (not
+        (with-current-buffer buffer
+          (goto-char (point-min))
+          (search-forward "warning" nil t))))
+	  (run-with-timer 1 nil
+                      (lambda (buf)
+						(delete-windows-on buf nil)
+						(message "compilation finished with neither errors nor warnings, window closed"))
+                      buffer)))
+
+(defun custom-for-compile ()
+  (global-set-key [f9] 'my-compile)
+  (setq compilation-scroll-output t)
+  (add-hook 'compilation-finish-functions 'kill-compile-window-if-successful))
 
 (defun custom-key-binding ()
   (adjust-window-size)
   (switch-among-windows)
-  (switch-among-buffers))
+  (switch-among-buffers)
+  (custom-for-compile))
 
 (custom-key-binding)
 

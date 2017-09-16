@@ -1,5 +1,5 @@
 ;;; company-mode config
-(require 'company)
+;; (require 'company)
 (require 'color)
 
 (global-set-key (kbd "<backtab>") 'company-complete-common)

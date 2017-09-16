@@ -1,5 +1,5 @@
 ;;; custom for tern
-(require 'tern)
+;; (require 'tern)
 
 (defun custom-for-tern-key-binding ()
   (local-set-key (kbd "M-.") 'tern-find-definition))

@@ -24,5 +24,6 @@
   (custom-c/cpp-general)
   (custom-c/cpp-company))
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-hook 'c-mode-hook 'custom-c/cpp)
 (add-hook 'c++-mode-hook 'custom-c/cpp)

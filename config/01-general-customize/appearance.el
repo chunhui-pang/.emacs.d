@@ -1,28 +1,20 @@
-(defun custom-appearance ()
+;; custom for window
+(defun custom-for-window ()
   ;; hide menu, bar, scroll bar
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (menu-bar-mode -1)
-  
   ;; show line number
   (column-number-mode 1)
   (global-linum-mode 1)
   (setq linum-format "%5d\u2502 ")
-  
   ;; display time
   (display-time-mode 1)
   (setq display-time-24hr-format t))
 
-(defun custom-global-modes ()
-  ;; auto close brackets
-  (electric-pair-mode 1)
-  (setq major-mode 'text-mode)
-  ;; indentation using smart-tabs-mode
-  (setq-default tab-width 4)
-  (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)))
-
-
-(defun custom-init-window ()
+;;; custom for emacs display
+(defun custom-for-display ()
+  (load-theme 'monokai t)
   (setq inhibit-splash-screen t)
   (setq initial-scratch-message 'nil)
   (add-to-list 'default-frame-alist '(width  . 120))
@@ -34,20 +26,8 @@
   (set-fontset-font "fontset-default"  '(#x4e00 . #x9fbf) "YaHei Consolas Hybrid-8"))
 
 
-(defun custom-default-coding ()
-  ;; default charset utf-8
-  (prefer-coding-system 'utf-8)
-  (set-default-coding-systems 'utf-8)
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8))
+(defun custom-for-appearance ()
+  (custom-for-window)
+  (custom-for-display))
 
-;; collect all custom functions
-(defun custom-general ()
-  (custom-appearance)
-  (custom-global-modes)
-  (custom-init-window)
-  (custom-default-coding))
-
-;; call all custom
-(custom-general)
-
+(add-hook 'after-init-hook 'custom-for-appearance)
