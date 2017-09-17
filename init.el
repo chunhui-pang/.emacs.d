@@ -1,46 +1,65 @@
 (require 'package)
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+
+(setq package-repos '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+		      ("melpa" . "http://elpa.emacs-china.org/melpa/")
+		      ("elpy" . "http://jorgenschaefer.github.io/packages/")))
+(setq default-repo "melpa")
+
 (package-initialize)
 (setq package-list 
-      '(monokai-theme
-        neotree
-        yasnippet
-        company
+      '(;; dependencies
+	(let-alist . "gnu")
+	(seq . "gnu")
+	;; utils
+	(monokai-theme . nil)
+        (neotree . nil)
+        (yasnippet . nil)
+        (company . nil)
+	(find-file-in-project . nil)
         ;; latex
-        auctex
-        company-auctex
-        company-math
+        (auctex . "gnu")
+        (company-auctex . nil)
+	(company-math . nil)
         ;; c/cpp
-        ggtags
-        irony
-        rtags
-        company-c-headers
-        company-irony
+        (ggtags . nil)
+        (irony . nil)
+        (rtags . nil)
+        (company-c-headers . nil)
+        (company-irony . nil)
         ;; javascript
-        js2-mode
-        js2-refactor
-        tern
-        company-tern
+        (js2-mode . nil)
+	(js2-refactor . nil)
+	(tern . nil)
+        (company-tern . nil)
         ;; html and css
-        web-mode
-        company-web
+        (web-mode . nil)
+        (company-web . nil)
         ;; python
-        elpy
-        flycheck
+        (elpy . "elpy")
+        (flycheck . nil)
         ;; markdown
-        markdown-mode
+        (markdown-mode . nil)
         ))
-(setq package-contents-refreshed nil)
-(mapc (lambda (pkg)
-	(unless (package-installed-p pkg)
-	  (message "install package %s ..." pkg)
-	  (unless package-contents-refreshed
-	    (package-refresh-contents)
-	    (setq package-contents-refreshed t))
-	  (package-install pkg)))
-      package-list)
+
+(defun install-packages ()
+  ;; select repository
+  (setq current-repo nil)
+  (defun using-repo (name)
+    (unless name
+      (setq name default-repo))
+    (unless (eq current-repo name)
+      (setq current-repo name)
+      (setq package-archives (cons (assoc current-repo package-repos) nil))
+      (package-refresh-contents)))
+  
+  (dolist (package package-list)
+    (setq package-name (car package)
+	  package-repo (cdr package))
+    (unless (package-installed-p package-name)
+      (using-repo package-repo)
+      (message "install package %s from %s" package-name (cdr (car package-archives)))
+      (package-install package-name))))
+(install-packages)
 
 
 ;; util functions
@@ -73,22 +92,3 @@
       (expand-file-name "config" user-emacs-directory))
 (load-config-directory-sequential config-dir)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-backends (quote (company-elisp company-abbrev company-files)))
- '(package-selected-packages
-   (quote
-    (rtags neotree monokai-theme markdown-mode js2-refactor ggtags flycheck epc elpy company-tern company-math company-irony company-go company-c-headers company-auctex auto-complete))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-scrollbar-bg ((t (:background "#ffffff"))))
- '(company-scrollbar-fg ((t (:background "#ffffff"))))
- '(company-tooltip ((t (:inherit default :background "#ffffff"))))
- '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
- '(company-tooltip-selection ((t (:inherit font-lock-function-name-face)))))
