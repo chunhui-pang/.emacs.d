@@ -1,25 +1,25 @@
 (require 'package)
 
 (setq package-repos '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-		      ("melpa" . "http://elpa.emacs-china.org/melpa/")
-		      ("elpy" . "http://jorgenschaefer.github.io/packages/")))
+                      ("melpa" . "http://elpa.emacs-china.org/melpa/")
+                      ("elpy" . "http://jorgenschaefer.github.io/packages/")))
 (setq default-repo "melpa")
 
 (package-initialize)
 (setq package-list 
       '(;; dependencies
-	(let-alist . "gnu")
-	(seq . "gnu")
-	;; utils
-	(monokai-theme . nil)
+        (let-alist . "gnu")
+        (seq . "gnu")
+        ;; utils
+        (monokai-theme . nil)
         (neotree . nil)
         (yasnippet . nil)
         (company . nil)
-	(find-file-in-project . nil)
+        (find-file-in-project . nil)
         ;; latex
         (auctex . "gnu")
         (company-auctex . nil)
-	(company-math . nil)
+        (company-math . nil)
         ;; c/cpp
         (ggtags . nil)
         (irony . nil)
@@ -28,8 +28,8 @@
         (company-irony . nil)
         ;; javascript
         (js2-mode . nil)
-	(js2-refactor . nil)
-	(tern . nil)
+        (js2-refactor . nil)
+        (tern . nil)
         (company-tern . nil)
         ;; html and css
         (web-mode . nil)
@@ -54,12 +54,13 @@
   
   (dolist (package package-list)
     (setq package-name (car package)
-	  package-repo (cdr package))
+          package-repo (cdr package))
     (unless (package-installed-p package-name)
       (using-repo package-repo)
       (message "install package %s from %s" package-name (cdr (car package-archives)))
       (package-install package-name))))
 (install-packages)
+(setq package-archives package-repos)
 
 
 ;; util functions
@@ -92,3 +93,4 @@
       (expand-file-name "config" user-emacs-directory))
 (load-config-directory-sequential config-dir)
 
+
