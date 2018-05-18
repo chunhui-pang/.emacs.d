@@ -1,9 +1,13 @@
 (require 'package)
+(require 'server)
 
 (setq package-repos '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                       ("melpa" . "http://elpa.emacs-china.org/melpa/")
                       ("elpy" . "http://jorgenschaefer.github.io/packages/")))
 (setq default-repo "melpa")
+
+(if (not (and (fboundp 'server-start-p) (server-running-p)))
+    (server-start))
 
 (package-initialize)
 (setq package-list 
