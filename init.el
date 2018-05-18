@@ -19,6 +19,7 @@
         (neotree . nil)
         (yasnippet . nil)
         (company . nil)
+        (company-dict . nil)
         (find-file-in-project . nil)
         ;; latex
         (auctex . "gnu")
@@ -98,3 +99,18 @@
 (load-config-directory-sequential config-dir)
 
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-backends (quote (company-elisp company-abbrev company-files)))
+ '(package-selected-packages
+   (quote
+    (company-dict markdown-mode flycheck elpy company-web web-mode company-tern tern js2-refactor js2-mode company-irony company-c-headers rtags irony ggtags company-math company-auctex auctex find-file-in-project company yasnippet neotree monokai-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
