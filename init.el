@@ -98,16 +98,14 @@
       (expand-file-name "config" user-emacs-directory))
 (load-config-directory-sequential config-dir)
 
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-backends (quote (company-elisp company-abbrev company-files)))
  '(package-selected-packages
    (quote
-    (company-dict markdown-mode flycheck elpy company-web web-mode company-tern tern js2-refactor js2-mode company-irony company-c-headers rtags irony ggtags company-math company-auctex auctex find-file-in-project company yasnippet neotree monokai-theme))))
+    (web-mode rtags rich-minority neotree monokai-theme markdown-mode js2-refactor ggtags flycheck elpy company-web company-tern company-math company-irony company-dict company-c-headers company-auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
