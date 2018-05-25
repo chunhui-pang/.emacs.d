@@ -103,9 +103,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-backends (quote (company-elisp company-abbrev company-files)))
  '(package-selected-packages
    (quote
-    (web-mode rtags rich-minority neotree monokai-theme markdown-mode js2-refactor ggtags flycheck elpy company-web company-tern company-math company-irony company-dict company-c-headers company-auctex))))
+    (multi-term web-mode rtags rich-minority neotree monokai-theme markdown-mode js2-refactor ggtags flycheck elpy company-web company-tern company-math company-irony company-dict company-c-headers company-auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

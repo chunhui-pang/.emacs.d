@@ -24,11 +24,12 @@
 	(set-default-window-move-key)))
 
 ;; customize buffer switching keys
-(defun switch-among-buffers ()
+(defun custom-buffer-operations ()
   (global-set-key (kbd "C-<tab>")
                   (lambda () (interactive) (switch-to-buffer (other-buffer))))
   (global-set-key (kbd "C-{") 'previous-buffer)
-  (global-set-key (kbd "C-}") 'next-buffer))
+  (global-set-key (kbd "C-}") 'next-buffer)
+  (global-set-key (kbd "C-c C-r") 'rename-buffer))
 
 
 ;;; compile customization
@@ -62,11 +63,15 @@
   (setq compilation-scroll-output t)
   (add-hook 'compilation-finish-functions 'kill-compile-window-if-successful))
 
+(defun custom-for-other-keys ()
+  (global-set-key (kbd "C-c C-t") 'ansi-term))
+
 (defun custom-key-binding ()
   (adjust-window-size)
   (switch-among-windows)
-  (switch-among-buffers)
-  (custom-for-compile))
+  (custom-buffer-operations)
+  (custom-for-compile)
+  (custom-for-other-keys))
 
 (custom-key-binding)
 
