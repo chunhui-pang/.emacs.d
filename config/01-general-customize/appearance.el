@@ -7,7 +7,7 @@
   ;; show line number
   (column-number-mode 1)
   (global-linum-mode 1)
-  (setq linum-format "%5d\u2502 ")
+  (setq linum-format "%5d\u2502")
   ;; display time
   (display-time-mode 1)
   (setq display-time-24hr-format t))
@@ -22,9 +22,10 @@
   (add-to-list 'default-frame-alist '(height . 30))
   (setq split-height-threshold 0)
   (setq split-width-threshold nil)
-  (add-to-list 'default-frame-alist '(font . "YaHei Consolas Hybrid-12"))
+  ;; (add-to-list 'default-frame-alist '(font . "YaHei Consolas Hybrid-12"))
   ;; set chinese font
-  (set-fontset-font "fontset-default"  '(#x4e00 . #x9fbf) "YaHei Consolas Hybrid-10"))
+  ;; (set-fontset-font "fontset-default"  '(#x4e00 . #x9fbf) "YaHei Consolas Hybrid-10")
+  (add-to-list 'default-frame-alist '(font . "Fira Code-11")))
 
 
 (defun custom-for-appearance ()
