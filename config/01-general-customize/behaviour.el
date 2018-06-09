@@ -54,6 +54,9 @@
     (setq kept-new-versions 6)
     (setq kept-old-versions 2)
     (setq version-control t)))
+
+(defun custom-for-others ()
+  (setq ring-bell-function 'ignore))
   
 (defun custom-emacs-behaviour ()
   (custom-for-encoding)

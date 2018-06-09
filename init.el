@@ -16,6 +16,7 @@
         (seq . "gnu")
         ;; utils
         (monokai-theme . nil)
+        (dracula-theme . nil)
         (neotree . nil)
         (yasnippet . nil)
         (company . nil)
@@ -98,6 +99,7 @@
       (expand-file-name "config" user-emacs-directory))
 (load-config-directory-sequential config-dir)
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -106,7 +108,7 @@
  '(company-backends (quote (company-elisp company-abbrev company-files)))
  '(package-selected-packages
    (quote
-    (multi-term web-mode rtags rich-minority neotree monokai-theme markdown-mode js2-refactor ggtags flycheck elpy company-web company-tern company-math company-irony company-dict company-c-headers company-auctex))))
+    (dracula-theme smart-mode-line zenburn-theme base16-theme color-theme-solarized web-mode rtags rich-minority neotree multi-term monokai-theme markdown-mode js2-refactor ggtags flycheck elpy company-web company-tern company-math company-irony company-dict company-c-headers company-auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

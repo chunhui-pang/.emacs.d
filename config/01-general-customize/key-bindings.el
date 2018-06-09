@@ -29,7 +29,7 @@
                   (lambda () (interactive) (switch-to-buffer (other-buffer))))
   (global-set-key (kbd "C-{") 'previous-buffer)
   (global-set-key (kbd "C-}") 'next-buffer)
-  (global-set-key (kbd "C-c C-r") 'rename-buffer))
+  (global-set-key (kbd "C-x C-r") 'rename-buffer))
 
 
 ;;; compile customization
@@ -64,7 +64,7 @@
   (add-hook 'compilation-finish-functions 'kill-compile-window-if-successful))
 
 (defun custom-for-other-keys ()
-  (global-set-key (kbd "C-c C-t") 'ansi-term))
+  (global-set-key (kbd "C-x C-t") 'ansi-term))
 
 (defun custom-key-binding ()
   (adjust-window-size)
