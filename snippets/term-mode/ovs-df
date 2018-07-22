@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ovs-df
+# key: ovs-df
+# --
+ovs-ofctl dump-flows --rsort=priority ${1:br-int} $0

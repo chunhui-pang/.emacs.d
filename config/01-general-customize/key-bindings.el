@@ -12,16 +12,26 @@
   (global-set-key [C-M-left] 'windmove-left)
   (global-set-key [C-M-right] 'windmove-right)
   (message "setting up window move key for windows"))
+
 (defun set-default-window-move-key ()
   (global-set-key [s-left] 'windmove-left) 
   (global-set-key [s-right] 'windmove-right) 
   (global-set-key [s-up] 'windmove-up) 
   (global-set-key [s-down] 'windmove-down)
   (message "setting up window move key to default scheme"))
+
+(defun set-vim-style-window-move-key ()
+  (global-set-key (kbd "M-H") 'windmove-left)
+  (global-set-key (kbd "M-J") 'windmove-down)
+  (global-set-key (kbd "M-K") 'windmove-up)
+  (global-set-key (kbd "M-L") 'windmove-right)
+  (message "setting up window move key to vim style"))
+
 (defun switch-among-windows ()
-  (if (or (eq system-type 'ms-dos) (eq system-type 'windows-nt))
-	  (set-win32-window-move-key)
-	(set-default-window-move-key)))
+  ;; (if (or (eq system-type 'ms-dos) (eq system-type 'windows-nt))
+  ;;     (set-win32-window-move-key)
+  ;;   (set-default-window-move-key)))
+  (set-vim-style-window-move-key))
 
 ;; customize buffer switching keys
 (defun custom-buffer-operations ()

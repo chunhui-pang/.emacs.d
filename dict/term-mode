@@ -1,2 +1,8 @@
 openstack
-stty columns 
+stty columns
+openstack-controller
+openstack-compute01
+export TERM=eterm-color
+resize
+virsh
+console

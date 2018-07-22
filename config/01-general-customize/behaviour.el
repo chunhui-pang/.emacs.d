@@ -11,6 +11,7 @@
   ;; auto close brackets
   (electric-pair-mode 1)
   (ido-mode 1)
+  (winner-mode 1)
   (setq major-mode 'text-mode)
   ;; indentation using smart-tabs-mode
   (setq-default indent-tabs-mode nil)
@@ -62,7 +63,8 @@
   (custom-for-encoding)
   (custom-for-modes)
   (custom-for-default-directory)
-  (custom-for-backup))
+  (custom-for-backup)
+  (custom-for-others))
 
 (custom-emacs-behaviour)
 
