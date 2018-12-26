@@ -22,6 +22,7 @@
         (company . nil)
         (company-dict . nil)
         (find-file-in-project . nil)
+	(sml-modeline . nil)
         ;; latex
         (auctex . "gnu")
         (company-auctex . nil)
