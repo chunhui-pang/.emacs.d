@@ -22,7 +22,8 @@
         (company . nil)
         (company-dict . nil)
         (find-file-in-project . nil)
-	(sml-modeline . nil)
+	    (sml-modeline . nil)
+        (disable-mouse . nil)
         ;; latex
         (auctex . "gnu")
         (company-auctex . nil)
