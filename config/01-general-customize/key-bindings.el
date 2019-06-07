@@ -70,8 +70,8 @@
 
 (defun custom-for-compile ()
   (global-set-key [f9] 'my-compile)
-  (setq compilation-scroll-output t)
-  (add-hook 'compilation-finish-functions 'kill-compile-window-if-successful))
+  (setq compilation-scroll-output t))
+  ;; (add-hook 'compilation-finish-functions 'kill-compile-window-if-successful))
 
 (defun custom-for-other-keys ()
   (global-set-key (kbd "C-x C-t") 'ansi-term))
