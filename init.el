@@ -2,8 +2,7 @@
 (require 'server)
 
 (setq package-repos '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                      ("melpa" . "http://elpa.emacs-china.org/melpa/")
-                      ("elpy" . "http://jorgenschaefer.github.io/packages/")))
+                      ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 (setq default-repo "melpa")
 
 (if (not (and (fboundp 'server-start-p) (server-running-p)))
@@ -20,6 +19,7 @@
         (neotree . nil)
         (yasnippet . nil)
         (company . nil)
+        (company-posframe . nil)
         (company-dict . nil)
         (find-file-in-project . nil)
 	    (sml-modeline . nil)
@@ -43,10 +43,11 @@
         (web-mode . nil)
         (company-web . nil)
         ;; python
-        (elpy . "elpy")
         (flycheck . nil)
         ;; markdown
         (markdown-mode . nil)
+        ;; input
+        (pyim . nil)
         ))
 
 (defun install-packages ()
@@ -101,19 +102,3 @@
       (expand-file-name "config" user-emacs-directory))
 (load-config-directory-sequential config-dir)
 
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-backends (quote (company-elisp company-abbrev company-files)))
- '(package-selected-packages
-   (quote
-    (dracula-theme smart-mode-line zenburn-theme base16-theme color-theme-solarized web-mode rtags rich-minority neotree multi-term monokai-theme markdown-mode js2-refactor ggtags flycheck elpy company-web company-tern company-math company-irony company-dict company-c-headers company-auctex))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

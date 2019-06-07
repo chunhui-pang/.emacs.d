@@ -9,3 +9,5 @@
 (setq company-dict-dir (concat "/home/chunhui/.emacs.d/" "dict/"))
 (add-to-list 'company-backends 'company-dict)
 
+(require 'company-posframe)
+(company-posframe-mode 1)

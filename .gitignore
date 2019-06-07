@@ -8,3 +8,4 @@ session.*
 ac-comphist.dat
 .python-environments/
 ido.last
+pyim/

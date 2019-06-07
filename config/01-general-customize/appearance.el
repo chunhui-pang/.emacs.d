@@ -5,9 +5,9 @@
   (scroll-bar-mode -1)
   (menu-bar-mode -1)
   ;; show line number
-  (column-number-mode 1)
-  (global-linum-mode 1)
-  (setq linum-format "%5d\u2502")
+  ;; (column-number-mode 1)
+  ;; (global-linum-mode 1)
+  ;; (setq linum-format "%5d\u2502")
   ;; display time
   (display-time-mode 1)
   (setq display-time-24hr-format t))
@@ -15,7 +15,8 @@
 ;;; custom for emacs display
 (defun custom-for-display ()
   ;; (load-theme 'monokai t)
-  (load-theme 'dracula t)
+  ;; (load-theme 'dracula t)
+  (load-theme 'light-blue t)
   (setq inhibit-splash-screen t)
   (setq initial-scratch-message 'nil)
   (add-to-list 'default-frame-alist '(width  . 120))
