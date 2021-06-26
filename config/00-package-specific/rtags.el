@@ -1,4 +1,4 @@
-;; rtags customization
+
 
 ;; rtags documentation
 ;;

@@ -2,7 +2,8 @@
 (defun custom-for-window ()
   ;; hide menu, bar, scroll bar
   (tool-bar-mode -1)
-  (scroll-bar-mode -1)
+  (if (fboundp 'scroll-bar-mode) 
+      (scroll-bar-mode -1))
   (menu-bar-mode -1)
   ;; show line number
   ;; (column-number-mode 1)
@@ -14,9 +15,7 @@
 
 ;;; custom for emacs display
 (defun custom-for-display ()
-  ;; (load-theme 'monokai t)
-  ;; (load-theme 'dracula t)
-  (load-theme 'light-blue t)
+  (load-theme 'solarized-dark t)
   (setq inhibit-splash-screen t)
   (setq initial-scratch-message 'nil)
   (add-to-list 'default-frame-alist '(width  . 120))
