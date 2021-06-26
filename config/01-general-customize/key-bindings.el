@@ -74,7 +74,7 @@
   ;; (add-hook 'compilation-finish-functions 'kill-compile-window-if-successful))
 
 (defun custom-for-other-keys ()
-  (global-set-key (kbd "C-x C-t") 'ansi-term))
+  (global-set-key (kbd "C-x C-t") 'multi-vterm))
 
 (defun custom-key-binding ()
   (adjust-window-size)

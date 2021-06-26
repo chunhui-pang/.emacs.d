@@ -57,7 +57,8 @@
     (setq version-control t)))
 
 (defun custom-for-others ()
-  (setq ring-bell-function 'ignore))
+  (setq ring-bell-function 'ignore)
+  (setq x-select-enable-clipboard t))
   
 (defun custom-emacs-behaviour ()
   (custom-for-encoding)
