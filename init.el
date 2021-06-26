@@ -2,7 +2,7 @@
 (require 'server)
 
 (setq package-repos '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+                      ("melpa" . "https://melpa.org/packages/")))
 (setq default-repo "melpa")
 
 (if (not (and (fboundp 'server-start-p) (server-running-p)))
@@ -22,6 +22,7 @@
         (company . nil)
         (company-posframe . nil)
         (company-dict . nil)
+	(project . "gnu")
         (find-file-in-project . nil)
 	    (sml-modeline . nil)
         (disable-mouse . nil)
@@ -48,9 +49,11 @@
         (flycheck . nil)
         ;; markdown
         (markdown-mode . nil)
+	(protobuf-mode . nil)
         ;; input
         (pyim . nil)
         (vterm . nil)
+        (multi-vterm . nil)
         ))
 
 (defun install-packages ()
