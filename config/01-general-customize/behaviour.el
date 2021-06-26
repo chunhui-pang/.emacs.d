@@ -57,7 +57,8 @@
     (setq version-control t)))
 
 (defun custom-for-others ()
-  (setq ring-bell-function 'ignore))
+  (setq ring-bell-function 'ignore)
+  (setq x-select-enable-clipboard t))
   
 (defun custom-emacs-behaviour ()
   (custom-for-encoding)
@@ -69,3 +70,8 @@
 (custom-emacs-behaviour)
 
 
+(add-hook 'before-save-hook 'remove-prog-trailing-whitespace)
+
+(defun remove-prog-trailing-whitespace ()
+  (when (derived-mode-p 'prog-mode)
+    (delete-trailing-whitespace)))
