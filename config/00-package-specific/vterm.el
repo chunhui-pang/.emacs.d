@@ -2,7 +2,7 @@
 (require 'multi-vterm)
 
 (defun customize-vterm-settings ()
-  (setq vterm-shell "zsh")
+  (setq vterm-shell "bash")
   (setq vterm-timer-delay 0.005))
 
 (defun customize-vterm-keys ()

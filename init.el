@@ -23,7 +23,7 @@
         (company . nil)
         (company-posframe . nil)
         (company-dict . nil)
-	(project . "gnu")
+	    (project . "gnu")
         (find-file-in-project . nil)
 	    (sml-modeline . nil)
         (disable-mouse . nil)
@@ -38,24 +38,24 @@
         (company-c-headers . nil)
         (company-irony . nil)
         ;; javascript
-        ;; (js2-mode . nil)
-        ;; (js2-refactor . nil)
+        (js2-mode . nil)
+        (js2-refactor . nil)
         (tern . nil)
         ;; (company-tern . nil)
         ;; html and css
-        ;; (xr . "gnu")
+        (xr . "gnu")
         (web-mode . nil)
-        ;; (company-web . nil)
+        (company-web . nil)
         ;; python
         (flycheck . nil)
         ;; markdown
         (markdown-mode . nil)
-	(protobuf-mode . nil)
+	    (protobuf-mode . nil)
         ;; input
         (pyim . nil)
+	    (pyim-basedict . nil)
         (vterm . nil)
-        (multi-vterm . nil)
-        ))
+        (multi-vterm . nil)))
 
 (defun install-packages ()
   ;; select repository

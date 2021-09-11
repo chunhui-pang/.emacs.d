@@ -28,7 +28,7 @@
         ((or
           (eq system-type 'gnu)
           (eq system-type 'gnu/linux))
-         (setq custom-directory "~/workspace/")))
+         (setq custom-directory "~/Workspace/")))
   (when custom-directory
     (message "default workspace set to %s" custom-directory)
     (setq default-directory custom-directory)))
@@ -44,7 +44,7 @@
         ((or
           (eq system-type 'gnu)
           (eq system-type 'gnu/linux))
-         (setq custom-backup-dir "~/workspace/.emacsbackup/")))
+         (setq custom-backup-dir "~/Workspace/.emacsbackup/")))
   (when custom-backup-dir
     (message "set backup directory to %s" custom-backup-dir)
     (unless (file-accessible-directory-p custom-backup-dir)

@@ -5,7 +5,7 @@
 
 (defun go-to-task-list ()
   (interactive)
-  (neotree-dir "~/Workspace/tasks"))
+  (neotree-dir "~/Workspace/tasklist/"))
 
 (global-set-key [f12] 'go-to-task-list)
 
