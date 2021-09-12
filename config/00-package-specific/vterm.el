@@ -13,6 +13,7 @@
   (define-key vterm-mode-map (kbd "M-L") nil)
   (define-key vterm-mode-map (kbd "M-H") nil)
   (define-key vterm-mode-map (kbd "C-\\") nil)
+  (define-key vterm-mode-map (kbd "S-SPC") nil)
   (define-key vterm-mode-map (kbd "<f1>") nil)
   (define-key vterm-mode-map (kbd "<f2>") nil)
   (define-key vterm-mode-map (kbd "<f3>") nil)
@@ -28,7 +29,7 @@
   (define-key vterm-mode-map (kbd "C-c n") 'multi-vterm-next)
   (define-key vterm-mode-map (kbd "C-c p") 'multi-vterm-prev)
   (define-key vterm-mode-map (kbd "C-m") 'vterm-copy-mode))
-  
+
 
 (defun customize-vterm ()
   (customize-vterm-settings)
