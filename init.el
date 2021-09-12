@@ -5,16 +5,23 @@
                       ("melpa" . "https://melpa.org/packages/")))
 (setq default-repo "melpa")
 
-(if (not (and (fboundp 'server-start-p) (server-running-p)))
+(if (not (and (boundp 'server-process)
+              (server-running-p)))
     (server-start))
 
 (package-initialize)
-(setq package-list 
+(setq package-list
       '(;; dependencies
-        (cl-lib . nil)
+        ;; gnu repo
         (let-alist . "gnu")
         (seq . "gnu")
+        (project . "gnu")
+        (auctex . "gnu")
+        (xr . "gnu")
+
+        ;; melpa repo
         ;; utils
+        (cl-lib . nil)
         (monokai-theme . nil)
         (dracula-theme . nil)
         (solarized-theme . nil)
@@ -23,12 +30,12 @@
         (company . nil)
         (company-posframe . nil)
         (company-dict . nil)
-	    (project . "gnu")
+
         (find-file-in-project . nil)
-	    (sml-modeline . nil)
+        (sml-modeline . nil)
         (disable-mouse . nil)
         ;; latex
-        (auctex . "gnu")
+
         (company-auctex . nil)
         (company-math . nil)
         ;; c/cpp
@@ -43,17 +50,16 @@
         (tern . nil)
         ;; (company-tern . nil)
         ;; html and css
-        (xr . "gnu")
         (web-mode . nil)
         (company-web . nil)
         ;; python
         (flycheck . nil)
         ;; markdown
         (markdown-mode . nil)
-	    (protobuf-mode . nil)
+        (protobuf-mode . nil)
         ;; input
         (pyim . nil)
-	    (pyim-basedict . nil)
+        (pyim-basedict . nil)
         (vterm . nil)
         (multi-vterm . nil)))
 
@@ -66,8 +72,9 @@
     (unless (eq current-repo name)
       (setq current-repo name)
       (setq package-archives (cons (assoc current-repo package-repos) nil))
+      (package-initialize)
       (package-refresh-contents)))
-  
+
   (dolist (package package-list)
     (setq package-name (car package)
           package-repo (cdr package))
@@ -75,6 +82,7 @@
       (using-repo package-repo)
       (message "install package %s from %s" package-name (cdr (car package-archives)))
       (package-install package-name))))
+
 (install-packages)
 (setq package-archives package-repos)
 
@@ -116,7 +124,7 @@
  ;; If there is more than one, they won't work right.
  '(company-backends '(company-elisp company-abbrev company-files))
  '(custom-safe-themes
-   '("d9646b131c4aa37f01f909fbdd5a9099389518eb68f25277ed19ba99adeb7279" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" default))
+   '("c1284dd4c650d6d74cfaf0106b8ae42270cab6c58f78efc5b7c825b6a4580417" "d9646b131c4aa37f01f909fbdd5a9099389518eb68f25277ed19ba99adeb7279" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" default))
  '(org-agenda-files nil)
  '(package-selected-packages
    '(cl-lib protobuf-mode all-the-icons zenburn-theme web-mode vterm-toggle tern solarized-theme sml-modeline rtags pyim neotree multi-vterm monokai-theme melancholy-theme markdown-mode js2-refactor go-mode ggtags flycheck find-file-in-project exec-path-from-shell dracula-theme disable-mouse company-web company-posframe company-math company-irony company-dict company-c-headers company-auctex)))

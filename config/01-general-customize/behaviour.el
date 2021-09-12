@@ -58,7 +58,9 @@
 
 (defun custom-for-others ()
   (setq ring-bell-function 'ignore)
-  (setq x-select-enable-clipboard t))
+  (setq x-select-enable-clipboard t)
+  (add-hook 'before-save-hook
+            'delete-trailing-whitespace))
   
 (defun custom-emacs-behaviour ()
   (custom-for-encoding)
