@@ -30,6 +30,7 @@
         (company . nil)
         (company-posframe . nil)
         (company-dict . nil)
+        (exec-path-from-shell . nil)
 
         (find-file-in-project . nil)
         (sml-modeline . nil)
