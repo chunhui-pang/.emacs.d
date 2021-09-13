@@ -2,7 +2,13 @@
 (require 'multi-vterm)
 
 (defun customize-vterm-settings ()
-  (setq vterm-shell "bash")
+  (if (eq system-type 'darwin)
+      (setq vterm-shell "zsh"))
+  (if (eq system-type 'gnu/linux)
+      (setq vterm-shell "bash"))
+  (if (eq system-type 'cygwin)
+      (setq vterm-shell "bash"))
+
   (setq vterm-timer-delay 0.005))
 
 (defun customize-vterm-keys ()

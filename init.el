@@ -54,6 +54,8 @@
         (company-web . nil)
         ;; python
         (flycheck . nil)
+        (jedi . nil)
+        (elpy . nil)
         ;; markdown
         (markdown-mode . nil)
         (protobuf-mode . nil)

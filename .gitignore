@@ -9,3 +9,5 @@ ac-comphist.dat
 .python-environments/
 ido.last
 pyim/
+elpy/
+transient/
