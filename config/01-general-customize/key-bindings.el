@@ -3,7 +3,8 @@
   (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
   (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
   (global-set-key (kbd "S-C-<down>") 'shrink-window)
-  (global-set-key (kbd "S-C-<up>") 'enlarge-window))
+  (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+  (global-set-key (kbd "<f11>") 'toggle-frame-fullscreen))
 
 ;;; customize window switching keys
 (defun set-win32-window-move-key ()
@@ -14,9 +15,9 @@
   (message "setting up window move key for windows"))
 
 (defun set-default-window-move-key ()
-  (global-set-key [s-left] 'windmove-left) 
-  (global-set-key [s-right] 'windmove-right) 
-  (global-set-key [s-up] 'windmove-up) 
+  (global-set-key [s-left] 'windmove-left)
+  (global-set-key [s-right] 'windmove-right)
+  (global-set-key [s-up] 'windmove-up)
   (global-set-key [s-down] 'windmove-down)
   (message "setting up window move key to default scheme"))
 
@@ -71,7 +72,15 @@
 (defun custom-for-compile ()
   (global-set-key [f9] 'my-compile)
   (setq compilation-scroll-output t))
-  ;; (add-hook 'compilation-finish-functions 'kill-compile-window-if-successful))
+
+(defun open-todo-list ()
+  (interactive)
+  (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/todo.org")))
+
+(defun custom-open-todo-list ()
+  (message "custom for open todo list")
+  (global-set-key (kbd "S-<f12>") 'open-todo-list))
+
 
 (defun custom-for-other-keys ()
   (global-set-key (kbd "C-x C-t") 'multi-vterm))
@@ -81,7 +90,7 @@
   (switch-among-windows)
   (custom-buffer-operations)
   (custom-for-compile)
-  (custom-for-other-keys))
+  (custom-for-other-keys)
+  (custom-open-todo-list))
 
 (custom-key-binding)
-

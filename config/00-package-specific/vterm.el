@@ -20,6 +20,7 @@
   (define-key vterm-mode-map (kbd "M-H") nil)
   (define-key vterm-mode-map (kbd "C-\\") nil)
   (define-key vterm-mode-map (kbd "S-SPC") nil)
+  (define-key vterm-mode-map (kbd "M-SPC") nil)
   (define-key vterm-mode-map (kbd "<f1>") nil)
   (define-key vterm-mode-map (kbd "<f2>") nil)
   (define-key vterm-mode-map (kbd "<f3>") nil)
