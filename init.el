@@ -120,20 +120,3 @@
       (expand-file-name "config" user-emacs-directory))
 (load-config-directory-sequential config-dir)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-backends '(company-elisp company-abbrev company-files))
- '(custom-safe-themes
-   '("c1284dd4c650d6d74cfaf0106b8ae42270cab6c58f78efc5b7c825b6a4580417" "d9646b131c4aa37f01f909fbdd5a9099389518eb68f25277ed19ba99adeb7279" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" default))
- '(org-agenda-files nil)
- '(package-selected-packages
-   '(cl-lib protobuf-mode all-the-icons zenburn-theme web-mode vterm-toggle tern solarized-theme sml-modeline rtags pyim neotree multi-vterm monokai-theme melancholy-theme markdown-mode js2-refactor go-mode ggtags flycheck find-file-in-project exec-path-from-shell dracula-theme disable-mouse company-web company-posframe company-math company-irony company-dict company-c-headers company-auctex)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

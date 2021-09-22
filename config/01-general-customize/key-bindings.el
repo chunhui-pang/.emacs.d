@@ -40,7 +40,8 @@
                   (lambda () (interactive) (switch-to-buffer (other-buffer))))
   (global-set-key (kbd "C-{") 'previous-buffer)
   (global-set-key (kbd "C-}") 'next-buffer)
-  (global-set-key (kbd "C-x C-r") 'rename-buffer))
+  (global-set-key (kbd "C-x C-r") 'rename-buffer)
+  (global-set-key (kbd "C-x C-b") 'ibuffer))
 
 
 ;;; compile customization

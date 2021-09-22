@@ -56,19 +56,23 @@
     (setq kept-old-versions 2)
     (setq version-control t)))
 
+(defun custom-for-appointments ()
+  (appt-activate)
+  (setq org-agenda-files '("~/Workspace/tasklist"))
+  (global-set-key (kbd "C-c a") 'org-agenda))
+
 (defun custom-for-others ()
   (setq ring-bell-function 'ignore)
   (setq x-select-enable-clipboard t)
   (add-hook 'before-save-hook
             'delete-trailing-whitespace))
-  
+
 (defun custom-emacs-behaviour ()
   (custom-for-encoding)
   (custom-for-modes)
   (custom-for-default-directory)
   (custom-for-backup)
+  (custom-for-appointments)
   (custom-for-others))
 
 (custom-emacs-behaviour)
-
-
