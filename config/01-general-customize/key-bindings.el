@@ -76,11 +76,13 @@
 
 (defun open-todo-list ()
   (interactive)
-  (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/todo.org")))
+  (if (file-exists-p "~/Workspace/tasklist/todo.org")
+      (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/todo.org"))))
 
 (defun open-env-info ()
   (interactive)
-  (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/notes/env_info.org")))
+  (if (file-exists-p "~/Workspace/tasklist/notes/env_info.org")
+      (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/notes/env_info.org"))))
 
 (defun custom-quick-file ()
   (message "custom for open quick file")
