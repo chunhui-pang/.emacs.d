@@ -76,11 +76,18 @@
 
 (defun open-todo-list ()
   (interactive)
-  (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/todo.org")))
+  (if (file-exists-p "~/Workspace/tasklist/todo.org")
+      (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/todo.org"))))
 
-(defun custom-open-todo-list ()
-  (message "custom for open todo list")
-  (global-set-key (kbd "S-<f12>") 'open-todo-list))
+(defun open-env-info ()
+  (interactive)
+  (if (file-exists-p "~/Workspace/tasklist/notes/env_info.org")
+      (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/notes/env_info.org"))))
+
+(defun custom-quick-file ()
+  (message "custom for open quick file")
+  (global-set-key (kbd "S-<f12>") 'open-todo-list)
+  (global-set-key (kbd "<f10>") 'open-env-info))
 
 
 (defun custom-for-other-keys ()
@@ -92,6 +99,6 @@
   (custom-buffer-operations)
   (custom-for-compile)
   (custom-for-other-keys)
-  (custom-open-todo-list))
+  (custom-quick-file))
 
 (custom-key-binding)

@@ -8,5 +8,3 @@
   (neotree-dir "~/Workspace/tasklist/"))
 
 (global-set-key [f12] 'go-to-task-list)
-
- 

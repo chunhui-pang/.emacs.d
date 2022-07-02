@@ -9,7 +9,6 @@
               (server-running-p)))
     (server-start))
 
-(package-initialize)
 (setq package-list
       '(;; dependencies
         ;; gnu repo
@@ -64,7 +63,9 @@
         (pyim . nil)
         (pyim-basedict . nil)
         (vterm . nil)
-        (multi-vterm . nil)))
+        (multi-vterm . nil)
+        ;; go
+        (go-mode . nil)))
 
 (defun install-packages ()
   ;; select repository
@@ -119,4 +120,3 @@
 (setq config-dir
       (expand-file-name "config" user-emacs-directory))
 (load-config-directory-sequential config-dir)
-

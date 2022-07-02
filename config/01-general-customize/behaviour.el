@@ -58,8 +58,14 @@
 
 (defun custom-for-appointments ()
   (appt-activate)
-  (setq org-agenda-files '("~/Workspace/tasklist"))
-  (global-set-key (kbd "C-c a") 'org-agenda))
+  (setq org-agenda-include-diary t)
+  (if (file-exists-p "~/Workspace/tasklist/diary/diary.org")
+      (setq org-agenda-diary-file "~/Workspace/tasklist/diary/diary.org"))
+  (if (file-exists-p "~/Workspace/tasklist/diary/diary")
+      (setq diary-file "~/Workspace/tasklist/diary/diary"))
+  (if (file-directory-p "~/Workspace/tasklist")
+      (setq org-agenda-files '("~/Workspace/tasklist")))
+  (global-set-key (kbd "C-c a") 'org-agenda-list))
 
 (defun custom-for-others ()
   (setq ring-bell-function 'ignore)
