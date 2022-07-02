@@ -9,7 +9,22 @@
   (if (eq system-type 'cygwin)
       (setq vterm-shell "bash"))
 
+  (setq-default vterm-use-vterm-prompt-detection-method nil)
+  (setq-default term-prompt-regexp "^.*[%#\$]\\W")
   (setq vterm-timer-delay 0.005))
+
+(defun vterm-set-root-host-name ()
+  (interactive)
+  (save-excursion
+    (let ((match-begin (search-backward-regexp "@.*:" nil t)))
+      (if match-begin
+          (let ((hostname (buffer-substring (+ match-begin 1) (- (match-end 0) 1))))
+            (let ((prefix (read-string (concat "Hostname is: " hostname ", please input an optional prefix: "))))
+              (progn
+                (if (> (length prefix) 0)
+                    (setq prefix (concat prefix "-")))
+                (rename-buffer (concat prefix hostname)))))
+        (message "Guess no valid host name.")))))
 
 (defun customize-vterm-keys ()
   (define-key vterm-mode-map (kbd "ESC ESC") 'vterm-send-escape)
@@ -35,7 +50,8 @@
   (define-key vterm-mode-map (kbd "<f12>") nil)
   (define-key vterm-mode-map (kbd "C-c n") 'multi-vterm-next)
   (define-key vterm-mode-map (kbd "C-c p") 'multi-vterm-prev)
-  (define-key vterm-mode-map (kbd "C-m") 'vterm-copy-mode))
+  (define-key vterm-mode-map (kbd "C-m") 'vterm-copy-mode)
+  (define-key vterm-mode-map (kbd "C-c C-s") 'vterm-set-root-host-name))
 
 
 (defun customize-vterm ()
