@@ -59,6 +59,7 @@
         ;; markdown
         (markdown-mode . nil)
         (protobuf-mode . nil)
+        (yaml . nil)
         ;; input
         (pyim . nil)
         (pyim-basedict . nil)
