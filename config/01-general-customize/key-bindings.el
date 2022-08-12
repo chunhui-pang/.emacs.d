@@ -1,9 +1,17 @@
 ;; customize window adjusting keys
+(defun split-3-windows-horizontally-evenly ()
+  (interactive)
+  (command-execute 'split-window-horizontally)
+  (command-execute 'split-window-horizontally)
+  (command-execute 'balance-windows)
+)
+
 (defun adjust-window-size ()
   (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
   (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
   (global-set-key (kbd "S-C-<down>") 'shrink-window)
   (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+  (global-set-key (kbd "C-x 4") 'split-3-windows-horizontally-evenly)
   (global-set-key (kbd "<f11>") 'toggle-frame-fullscreen))
 
 ;;; customize window switching keys
