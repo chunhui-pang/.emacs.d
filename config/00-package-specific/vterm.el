@@ -50,7 +50,7 @@
   (define-key vterm-mode-map (kbd "<f12>") nil)
   (define-key vterm-mode-map (kbd "C-c n") 'multi-vterm-next)
   (define-key vterm-mode-map (kbd "C-c p") 'multi-vterm-prev)
-  (define-key vterm-mode-map (kbd "C-m") 'vterm-copy-mode)
+  (define-key vterm-mode-map (kbd "C-s") 'vterm-copy-mode)
   (define-key vterm-mode-map (kbd "C-c C-s") 'vterm-set-root-host-name))
 
 
