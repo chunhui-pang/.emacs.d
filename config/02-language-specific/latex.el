@@ -1,10 +1,7 @@
 ;;; latex environment
-(defun custom-latex-general ()
-  )
-
 (defun custom-latex-auctex ()
   ;; add support latexmk compile command
-  (push 
+  (push
    '("Latexmk" "latexmk -pdf %(mode) %s" TeX-run-TeX nil t
 	 :help "Run Latexmk on file")
    TeX-command-list)
@@ -41,21 +38,13 @@
 	 (quote
 	  (company-latex-commands company-math-symbols-unicode company-abbrev company-files)))))
 
-;; start emacs server, JabRef can use it to send bib entry
-(defun custom-latex-emacs-server ()
-  (require 'server)
-  (unless (server-running-p)
-	(server-start)))
-
 (defun custom-latex-enable-other-modes ()
   (outline-minor-mode 1))
 
 (defun custom-latex ()
   (message "custom for latex environment...")
-  (custom-latex-general)
   (custom-latex-auctex)
   (custom-latex-company)
-  (custom-latex-emacs-server)
   (custom-latex-enable-other-modes))
 
 (add-hook 'LaTeX-mode-hook 'custom-latex)

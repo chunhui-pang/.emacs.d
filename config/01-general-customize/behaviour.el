@@ -19,56 +19,26 @@
 
 ;;; default directory
 (defun custom-for-default-directory ()
-  (setq custom-directory nil)
-  (cond ((or
-          (eq system-type 'ms-dos)
-          (eq system-type 'windows-nt)
-          (eq system-type 'cygwin))
-         (setq custom-directory "d:/workspace/"))
-        ((or
-          (eq system-type 'gnu)
-          (eq system-type 'gnu/linux))
-         (setq custom-directory "~/Workspace/")))
-  (when custom-directory
+  (let ((custom-directory (os-type-choose-value "~/Workspace/" "d:/workspace/")))
     (message "default workspace set to %s" custom-directory)
     (setq default-directory custom-directory)))
 
 ;;; custom for backup strategy
 (defun custom-for-backup ()
-  (setq custom-backup-dir nil)
-  (cond ((or
-          (eq system-type 'ms-dos)
-          (eq system-type 'windows-nt)
-          (eq system-type 'cygwin))
-         (setq custom-backup-dir "d:/workspace/.emacsbackup/"))
-        ((or
-          (eq system-type 'gnu)
-          (eq system-type 'gnu/linux))
-         (setq custom-backup-dir "~/Workspace/.emacsbackup/")))
-  (when custom-backup-dir
+  (let ((custom-backup-dir (os-type-choose-value "~/Workspace/.emacsbackup/" "d:/workspace/.emacsbackup/")))
     (message "set backup directory to %s" custom-backup-dir)
     (unless (file-accessible-directory-p custom-backup-dir)
       (make-directory custom-backup-dir t))
-    (setq backup-by-copying t)
-    (setq backup-directory-alist `((".*" . ,custom-backup-dir)))
-    (setq delete-old-versions t)
-    (setq kept-new-versions 6)
-    (setq kept-old-versions 2)
-    (setq version-control t)))
-
-(defun custom-for-appointments ()
-  (appt-activate)
-  (setq org-agenda-include-diary t)
-  (if (file-exists-p "~/Workspace/tasklist/diary/diary.org")
-      (setq org-agenda-diary-file "~/Workspace/tasklist/diary/diary.org"))
-  (if (file-exists-p "~/Workspace/tasklist/diary/diary")
-      (setq diary-file "~/Workspace/tasklist/diary/diary"))
-  (if (file-directory-p "~/Workspace/tasklist")
-      (setq org-agenda-files '("~/Workspace/tasklist")))
-  (global-set-key (kbd "C-c a") 'org-agenda-list))
+    (setq backup-directory-alist `((".*" . ,custom-backup-dir))))
+  (setq backup-by-copying t)
+  (setq delete-old-versions t)
+  (setq kept-new-versions 6)
+  (setq kept-old-versions 2)
+  (setq version-control t))
 
 (defun custom-for-others ()
   (setq ring-bell-function 'ignore)
+  (setq mouse-drag-copy-region t)
   (setq x-select-enable-clipboard t)
   (add-hook 'before-save-hook
             'delete-trailing-whitespace))
@@ -78,7 +48,6 @@
   (custom-for-modes)
   (custom-for-default-directory)
   (custom-for-backup)
-  (custom-for-appointments)
   (custom-for-others))
 
 (custom-emacs-behaviour)

@@ -63,29 +63,9 @@
     (select-window w)
     (select-window cur)))
 
-(defun kill-compile-window-if-successful (buffer string)
-  "kill the *compilation* window if the compilation is successfully finished"
-  (if (and
-       (string-match "compilation" (buffer-name buffer))
-       (string-match "finished" string)
-       (not
-        (with-current-buffer buffer
-          (goto-char (point-min))
-          (search-forward "warning" nil t))))
-	  (run-with-timer 1 nil
-                      (lambda (buf)
-						(delete-windows-on buf nil)
-						(message "compilation finished with neither errors nor warnings, window closed"))
-                      buffer)))
-
 (defun custom-for-compile ()
   (global-set-key [f9] 'my-compile)
   (setq compilation-scroll-output t))
-
-(defun open-todo-list ()
-  (interactive)
-  (if (file-exists-p "~/Workspace/tasklist/todo.org")
-      (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/todo.org"))))
 
 (defun open-env-info ()
   (interactive)
@@ -94,7 +74,6 @@
 
 (defun custom-quick-file ()
   (message "custom for open quick file")
-  (global-set-key (kbd "S-<f12>") 'open-todo-list)
   (global-set-key (kbd "<f10>") 'open-env-info))
 
 

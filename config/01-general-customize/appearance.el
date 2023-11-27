@@ -2,20 +2,15 @@
 (defun custom-for-window ()
   ;; hide menu, bar, scroll bar
   (tool-bar-mode -1)
-  (if (fboundp 'scroll-bar-mode) 
+  (if (fboundp 'scroll-bar-mode)
       (scroll-bar-mode -1))
   (menu-bar-mode -1)
-  ;; show line number
-  ;; (column-number-mode 1)
-  ;; (global-linum-mode 1)
-  ;; (setq linum-format "%5d\u2502")
   ;; display time
   (display-time-mode 1)
   (setq display-time-24hr-format t))
 
 ;;; custom for emacs display
 (defun custom-for-display ()
-  (load-theme 'solarized-dark t)
   (setq inhibit-splash-screen t)
   (setq initial-scratch-message 'nil)
   (add-to-list 'default-frame-alist '(width  . 120))
@@ -25,7 +20,7 @@
   ;; (add-to-list 'default-frame-alist '(font . "YaHei Consolas Hybrid-12"))
   ;; set chinese font
   ;; (set-fontset-font "fontset-default"  '(#x4e00 . #x9fbf) "YaHei Consolas Hybrid-10")
-  (add-to-list 'default-frame-alist '(font . "Fira Code-11")))
+  (add-to-list 'default-frame-alist '(font . "Fira Code-12")))
 
 
 (defun custom-for-appearance ()

@@ -1,2 +1,1 @@
-(require 'disable-mouse)
-;; (global-disable-mouse-mode)
+(use-package disable-mouse)

@@ -1,12 +1,13 @@
 ;;; company-mode config
-(require 'company)
+(use-package company :defer t
+  :hook (after-init . global-company-mode))
+
 (global-set-key (kbd "<backtab>") 'company-complete-common)
-(add-hook 'after-init-hook 'global-company-mode)
 
 
-(require 'company-dict)
+(use-package company-dict :defer t)
 (setq company-dict-enable-yasnippet nil)
 (setq company-dict-dir (concat "/home/chunhui/.emacs.d/" "dict/"))
 
-(require 'company-posframe)
+(use-package company-posframe :defer t)
 (company-posframe-mode 1)

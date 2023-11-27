@@ -1,8 +1,3 @@
-;;; yasnippet config
-(require 'yasnippet)
-
-(defun global-yasnippet-config ()
+(use-package yasnippet
+  :config
   (yas-global-mode t))
-
-(global-yasnippet-config)
-

@@ -1,0 +1,30 @@
+(setq agenda-dir (os-type-choose-value "~/Workspace/tasklist/" "d:/workspace/tasklist/"))
+
+(defun custom-for-appointments-files ()
+  (appt-activate)
+  (setq org-agenda-include-diary t)
+  (if (file-directory-p agenda-dir)
+      (setq org-agenda-files (list agenda-dir)))
+
+  (let* ((diary-dir (expand-file-name "diary" agenda-dir))
+         (agenda-diary-file (expand-file-name "diary.org" diary-dir))
+	 (diary-file (expand-file-name "diary" diary-dir)))
+    (if (file-exists-p agenda-diary-file)
+        (setq org-agenda-diary-file agenda-diary-file))
+    (if (file-exists-p diary-file)
+        (setq diary-file diary-file)))
+
+  (global-set-key (kbd "C-c a") 'org-agenda-list))
+
+(defun custom-for-agenda-list ()
+  (defun open-todo-list ()
+    (interactive)
+    (let ((todo-file (expand-file-name "todo.org" agenda-dir)))
+      (if (file-exists-p "~/Workspace/tasklist/todo.org")
+          (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/todo.org")))))
+  (global-set-key (kbd "S-<f12>") 'open-todo-list))
+
+(defun custom-for-appointments ()
+ (custom-for-appointments-files)
+ (custom-for-agenda-list))
+(custom-for-appointments)

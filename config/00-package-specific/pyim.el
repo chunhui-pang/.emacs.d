@@ -1,6 +1,6 @@
-(require 'pyim)
-(require 'pyim-basedict)
-(pyim-basedict-enable)
-(setq default-input-method "pyim")
-(setq pyim-page-tooltip 'posframe)
-(global-set-key (kbd "M-SPC") 'toggle-input-method)
+(use-package pyim
+  :config
+  (setq default-input-method "pyim")
+  (setq pyim-page-tooltip 'posframe))
+
+(use-package pyim-basedict)
