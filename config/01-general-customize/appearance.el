@@ -17,6 +17,7 @@
   (add-to-list 'default-frame-alist '(height . 30))
   (setq split-height-threshold 0)
   (setq split-width-threshold nil)
+  (set-face-attribute 'region nil :background "#888")
   ;; (add-to-list 'default-frame-alist '(font . "YaHei Consolas Hybrid-12"))
   ;; set chinese font
   ;; (set-fontset-font "fontset-default"  '(#x4e00 . #x9fbf) "YaHei Consolas Hybrid-10")

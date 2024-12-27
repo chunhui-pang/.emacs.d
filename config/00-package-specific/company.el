@@ -1,6 +1,9 @@
 ;;; company-mode config
-(use-package company :defer t
-  :hook (after-init . global-company-mode))
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+;; (use-package company :defer t
+;;   :hook (after-init . global-company-mode))
 
 (global-set-key (kbd "<backtab>") 'company-complete-common)
 
