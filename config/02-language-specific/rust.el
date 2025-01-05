@@ -1,3 +1,13 @@
-(use-package rust-mode :defer t
+(use-package rust-mode
+  :ensure t
+  :init
+  (setq rust-mode-treesitter-derive t))
+
+
+(use-package rustic
+  :ensure t
+  :after (rust-mode)
   :config
-  (add-hook 'rust-mode-hook #'lsp-deferred))
+  (setq rustic-format-on-save nil)
+  :custom
+  (rustic-cargo-use-last-stored-arguments t))
