@@ -1,4 +1,4 @@
-(use-package zenburn-theme
+(use-package solarized-theme
   :ensure t
   :config
-  (load-theme 'zenburn t))
+  (load-theme 'solarized-dark t))

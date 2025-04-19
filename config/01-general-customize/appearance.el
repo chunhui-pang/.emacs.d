@@ -17,14 +17,17 @@
   (add-to-list 'default-frame-alist '(height . 30))
   (setq split-height-threshold 0)
   (setq split-width-threshold nil)
-  ;; (add-to-list 'default-frame-alist '(font . "YaHei Consolas Hybrid-12"))
-  ;; set chinese font
-  ;; (set-fontset-font "fontset-default"  '(#x4e00 . #x9fbf) "YaHei Consolas Hybrid-10")
-  (add-to-list 'default-frame-alist '(font . "Fira Code-12")))
+  (set-face-attribute 'region nil :background "#888"))
 
+(defun custom-for-font ()
+  (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
+  (set-face-attribute 'default nil :font "Source Code Pro-13")
+  (set-fontset-font t 'han      (font-spec :family "STkaiti"))
+  (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti")))
 
 (defun custom-for-appearance ()
   (custom-for-window)
+  (custom-for-font)
   (custom-for-display))
 
 (add-hook 'after-init-hook 'custom-for-appearance)
