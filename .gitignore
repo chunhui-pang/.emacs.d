@@ -14,3 +14,4 @@ transient/
 org-persist/
 tramp
 tree-sitter/
+config/99-host-specific/
