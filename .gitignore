@@ -11,3 +11,6 @@ ido.last
 pyim/
 elpy/
 transient/
+org-persist/
+tramp
+tree-sitter/
