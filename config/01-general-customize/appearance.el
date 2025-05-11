@@ -21,8 +21,8 @@
 
 (defun custom-for-font ()
   (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
-  (set-face-attribute 'default nil :font "Source Code Pro-13")
-  (set-fontset-font t 'han      (font-spec :family "STkaiti"))
+  (set-face-attribute 'default nil :font "Fira Code-13")
+  (set-fontset-font t 'han (font-spec :family "STkaiti"))
   (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti")))
 
 (defun custom-for-appearance ()
