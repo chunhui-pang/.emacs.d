@@ -5,7 +5,7 @@
 ;; (use-package company :defer t
 ;;   :hook (after-init . global-company-mode))
 
-(global-set-key (kbd "<backtab>") 'company-complete-common)
+(global-set-key (kbd "M-TAB") 'completion-at-point)
 
 
 (use-package company-dict :defer t)
