@@ -1,12 +1,8 @@
-(use-package dap-mode :defer t)
+(use-package dap-mode
+  :ensure t
+  :config
+  (dap-auto-configure-mode)
+  (require 'dap-lldb) ;; Manually require dap-lldb
+  (require 'dap-gdb-lldb) ;; Also required for LLDB debugging
+  (require 'dap-cpptools)) 
 
-(require 'dap-gdb-lldb)
-
-(setq dap-auto-configure-features '(sessions locals controls tooltip))
-(dap-register-debug-template "Rust::GDB Run Configuration"
-                             (list :type "gdb"
-                                   :request "launch"
-                                   :name "GDB::Run"
-                                   :gdbpath "rust-gdb"
-                                   :target nil
-                                   :cwd nil))
