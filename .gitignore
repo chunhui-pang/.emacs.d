@@ -23,5 +23,6 @@ config/99-host-specific/
 /workspace/
 /rime/*
 !/rime/default.custom.yaml
+/librime/
 /eln-cache
 /projects
