@@ -14,3 +14,8 @@
         (os-type-win (if win-value win-value default-value))
         (os-type-mac (if mac-value mac-value default-value))
         (t default-value)))
+
+(let ((host-early-init (expand-file-name "early-init-host-specific.el" user-emacs-directory)))
+  (when (file-exists-p host-early-init)
+    (message "load eary init host specific file: %s" host-early-init)
+    (load host-early-init)))

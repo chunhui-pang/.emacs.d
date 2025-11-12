@@ -3,8 +3,8 @@
 (require 'server)
 
 
-(setq package-repos '(("gnu" . "https://elpa.gnu.org/packages/")
-                      ("melpa" . "https://melpa.org/packages/")))
+(setq package-repos '(("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                      ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (setq package-archives package-repos)
 (setq use-package-always-ensure t)
 
@@ -46,23 +46,25 @@
  ;; If there is more than one, they won't work right.
  '(company-backends '(company-abbrev company-files))
  '(custom-safe-themes
-   '("51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" default))
+   '("51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773"
+     default))
  '(package-selected-packages
-   '(yaml-mode lsp-java rustic rust-mode multi-vterm vterm solarized-theme jq-mode restclient-jq restclient pyim-basedict pyim magit which-key swiper protobuf-mode nerd-icons neotree lsp-ui lsp-ivy json-mode irony go-mode find-file-in-project exec-path-from-shell elpy disable-mouse dap-mode company-posframe company-dict company-box))
+   '(company-box company-dict company-posframe dap-mode disable-mouse
+                 doom-themes elpy exec-path-from-shell
+                 find-file-in-project go-mode irony json-mode lsp-ivy
+                 lsp-ui magit multi-vterm neotree nerd-icons
+                 protobuf-mode pyenv-mode pyim-basedict restclient-jq
+                 rustic solarized-theme swiper which-key yafolding
+                 zenburn-theme))
  '(safe-local-variable-values
    '((eval pyvenv-activate local-venv-path)
-     (eval message "find local python virtual environment %s" local-venv-path)
-     (eval set
-           (make-local-variable 'local-venv-path)
+     (eval message "find local python virtual environment %s"
+           local-venv-path)
+     (eval set (make-local-variable 'local-venv-path)
            (concat
             (file-name-directory
-             (let
-                 ((d
-                   (dir-locals-find-file ".")))
-               (if
-                   (stringp d)
-                   d
-                 (car d))))
+             (let ((d (dir-locals-find-file ".")))
+               (if (stringp d) d (car d))))
             "venv/")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

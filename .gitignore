@@ -15,8 +15,13 @@ org-persist/
 tramp
 tree-sitter/
 config/99-host-specific/
+/early-init-host-specific.el
 /.cache/
 /.dap-breakpoints
 /.lsp-session-v1
 /eclipse.jdt.ls/
 /workspace/
+/rime/*
+!/rime/default.custom.yaml
+/eln-cache
+/projects
