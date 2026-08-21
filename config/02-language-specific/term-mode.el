@@ -1,6 +1,5 @@
 ;; customize for term mode
 (defun customize-for-behaviours ()
-  (linum-mode 0)
   (add-to-list 'company-backends 'company-dict))
 
 (defun customize-for-keyboard ()

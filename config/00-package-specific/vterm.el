@@ -4,7 +4,8 @@
 
   (setq-default vterm-use-vterm-prompt-detection-method nil)
   (setq-default term-prompt-regexp "^.*[%#\$]\\W")
-  (setq vterm-timer-delay 0.005))
+  (setq vterm-timer-delay 0.005)
+  (setq term-buffer-maximum-size 100000))
 
 (defun vterm-set-root-host-name ()
   (interactive)
