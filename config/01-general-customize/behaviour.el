@@ -1,4 +1,5 @@
-;;; decoding
+;; -*- lexical-binding: t; -*-
+
 ;;; decoding
 (defun custom-for-encoding ()
   (prefer-coding-system 'utf-8)

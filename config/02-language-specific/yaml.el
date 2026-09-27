@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun customize-for-yaml-mode ()
   (yafolding-mode)
   (setq truncate-lines t))

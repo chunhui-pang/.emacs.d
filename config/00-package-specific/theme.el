@@ -1,3 +1,4 @@
+;;; theme.el --- -*- lexical-binding: t; -*-
 ;; (use-package solarized-theme
 ;;   :ensure t
 ;;   :config

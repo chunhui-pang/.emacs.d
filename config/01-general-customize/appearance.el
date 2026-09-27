@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; custom for window
 (defun custom-for-window ()
   ;; hide menu, bar, scroll bar
@@ -16,8 +18,7 @@
   (add-to-list 'default-frame-alist '(width  . 120))
   (add-to-list 'default-frame-alist '(height . 30))
   (setq split-height-threshold 0)
-  (setq split-width-threshold nil)
-  (set-face-attribute 'region nil :background "#888"))
+  (setq split-width-threshold nil))
 
 (defun custom-for-font ()
   (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))

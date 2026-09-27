@@ -1,3 +1,4 @@
+;;; vterm.el --- -*- lexical-binding: t; -*-
 (defun customize-vterm-settings ()
   (let ((shell-name (os-type-choose-value "bash" nil "bash" "zsh")))
     (when shell-name (setq vterm-shell shell-name)))

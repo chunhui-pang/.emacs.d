@@ -1,3 +1,4 @@
+;;; markdown.el --- -*- lexical-binding: t; -*-
 (use-package markdown-mode :defer t
   :mode (("\\.markdown\\'" . markdown-mode)
          ("\\.md\\'" . markdown-mode))

@@ -1,3 +1,4 @@
+;;; yafolding.el --- -*- lexical-binding: t; -*-
 (use-package yafolding
   :ensure t)
 

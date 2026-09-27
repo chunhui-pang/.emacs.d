@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; latex environment
 (defun custom-latex-auctex ()
   ;; add support latexmk compile command

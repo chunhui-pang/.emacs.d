@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun custom-python-dev ()
   (message "custom for python develop environment...")
   (when (bound-and-true-p lsp-mode)

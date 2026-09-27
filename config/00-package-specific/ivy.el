@@ -1,3 +1,4 @@
+;;; ivy.el --- -*- lexical-binding: t; -*-
 (use-package ivy :demand
   :bind (("C-c u" . ivy-resume))
   :config

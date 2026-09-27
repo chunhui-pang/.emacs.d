@@ -1,3 +1,4 @@
+;;; restclient.el --- -*- lexical-binding: t; -*-
 (use-package restclient :defer t
   :mode ("\\.http\\'" . restclient-mode))
 

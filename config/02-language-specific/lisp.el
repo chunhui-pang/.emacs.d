@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun custom-lisp ()
   (message "custom for lisp environment..."))
 

@@ -1,3 +1,4 @@
+;;; pyim.el --- -*- lexical-binding: t; -*-
 (use-package pyim
   :config
   ;; (setq default-input-method "pyim")

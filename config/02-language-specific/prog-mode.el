@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun customize-for-common-programming ()
   (yafolding-mode)
   (setq truncate-lines t))

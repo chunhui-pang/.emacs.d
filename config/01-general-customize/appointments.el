@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (setq agenda-dir (os-type-choose-value "~/Workspace/tasklist/" "d:/workspace/tasklist/"))
 
 (defun custom-for-appointments-files ()
@@ -20,8 +22,8 @@
   (defun open-todo-list ()
     (interactive)
     (let ((todo-file (expand-file-name "todo.org" agenda-dir)))
-      (if (file-exists-p "~/Workspace/tasklist/todo.org")
-          (switch-to-buffer (find-file-noselect "~/Workspace/tasklist/todo.org")))))
+      (when (file-exists-p todo-file)
+        (switch-to-buffer (find-file-noselect todo-file)))))
   (global-set-key (kbd "S-<f12>") 'open-todo-list))
 
 (defun custom-for-appointments ()

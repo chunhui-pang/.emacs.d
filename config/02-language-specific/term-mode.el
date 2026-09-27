@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; customize for term mode
 (defun customize-for-behaviours ()
   (add-to-list 'company-backends 'company-dict))

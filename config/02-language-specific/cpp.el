@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; for C++ and C
 (defun custom-c/cpp-general ()
   (setq gdb-many-windows t)

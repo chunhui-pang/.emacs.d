@@ -26,3 +26,12 @@ config/99-host-specific/
 /librime/
 /eln-cache
 /projects
+
+# machine-local customize file (auto-managed by Emacs)
+/custom.el
+# no-littering redirects
+/etc/
+/var/
+/init.el.pre-restructure.bak
+# byte-compiled files
+config/**/*.elc

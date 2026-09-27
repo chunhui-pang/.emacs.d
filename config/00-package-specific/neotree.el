@@ -1,3 +1,4 @@
+;;; neotree.el --- -*- lexical-binding: t; -*-
 (use-package nerd-icons :defer t)
 
 (use-package neotree :defer t

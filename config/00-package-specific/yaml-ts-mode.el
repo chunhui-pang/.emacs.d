@@ -1,3 +1,4 @@
+;;; yaml-ts-mode.el --- -*- lexical-binding: t; -*-
 (use-package yaml-ts-mode
   :ensure t
   :mode

@@ -1,3 +1,13 @@
+;;; early-init.el --- -*- lexical-binding: t; -*-
+
+;; -- native-comp workaround for Emacs 31 on macOS 27 -------------------------
+;; Emacs 31 binary was built with -mmacosx-version-min=18.0 baked into its
+;; native-comp driver options, but Apple's macOS versioning went 15 -> 26 (no
+;; 18.0 exists), so clang rejects the flag. Setting a valid deployment target
+;; in the env before any (native-)compilation subprocess runs restores JIT.
+(when (eq system-type 'darwin)
+  (setenv "MACOSX_DEPLOYMENT_TARGET" "15.0"))
+
 (setq gc-cons-threshold most-positive-fixnum)
 (add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
 
