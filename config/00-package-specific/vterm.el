@@ -25,14 +25,12 @@
   :config
   (customize-vterm-settings)
   :bind (:map vterm-mode-map
-              ("ESC ESC" . vterm-send-ecsape)
+              ("ESC ESC" . vterm-send-escape)
               ("M-H" . nil)
               ("M-J" . nil)
               ("M-K" . nil)
               ("M-L" . nil)
-              ("M-H" . nil)
               ("C-\\" . nil)
-              ("C-SPC" . nil)
               ("M-SPC" . nil)
               ("<f1>" . nil)
               ("<f2>" . nil)
