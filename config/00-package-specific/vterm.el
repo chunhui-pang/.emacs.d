@@ -44,6 +44,8 @@
               ("<f10>" . nil)
               ("<f11>" . nil)
               ("<f12>" . nil)
-              ("C-SPC" . vterm-copy-mode)
+              ;; vterm-mode-map 的 [t] catch-all 会把 C-SPC 吃进 vterm--self-insert，
+              ;; 单键重绑不稳；统一改用安全前缀 C-c RET。
+              ("C-c RET" . vterm-copy-mode)
               ("C-c C-s" . vterm-set-root-host-name)))
 (use-package multi-vterm)
