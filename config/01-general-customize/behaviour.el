@@ -44,11 +44,20 @@
   (add-hook 'before-save-hook
             'delete-trailing-whitespace))
 
+;;; mouse support in TTY (Alacritty / terminal Emacs)
+(defun custom-for-mouse ()
+  "TTY 下启用 xterm 鼠标协议：左键定位光标、拖拽选区、滚轮滚屏开箱可用。"
+  (unless (display-graphic-p)
+    (xterm-mouse-mode 1))
+  ;; 关掉 mouse-1 的 link 判断延迟（默认 450ms），让单击立刻定位光标。
+  (setq mouse-1-click-follows-link nil))
+
 (defun custom-emacs-behaviour ()
   (custom-for-encoding)
   (custom-for-modes)
   (custom-for-default-directory)
   (custom-for-backup)
-  (custom-for-others))
+  (custom-for-others)
+  (custom-for-mouse))
 
 (custom-emacs-behaviour)
